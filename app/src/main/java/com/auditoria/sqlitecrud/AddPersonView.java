@@ -2,6 +2,7 @@ package com.auditoria.sqlitecrud;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,10 +21,11 @@ public class AddPersonView extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person_view);
 
-        Button createPerson = (Button) findViewById(R.id.btn_add_person);
+        Button createPerson = (Button) findViewById(R.id.btn_create_person);
         createPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("Dio click al boton");
                 DatabaseManager databaseManager = new DatabaseManager(getBaseContext());
                 SQLiteDatabase db = databaseManager.getWritableDatabase();
 
@@ -39,16 +41,21 @@ public class AddPersonView extends Activity {
                 data.put("name", name);
                 data.put("last_name", lastName);
                 data.put("age", age);
-
+//
                 try {
-                    db.isOpen();
+                    System.out.println("entro al try catch");
                     db.insert("persons", null, data);
+                    db.close();
+                    Intent returnManager = new Intent(getApplicationContext(), ManagePersonView.class);
+                    finish();
+                    startActivity(returnManager);
                 }catch (Exception e){
                     db.close();
                     System.out.println(Log.e("Fallo al insertar: ", e.getMessage()));
                 }
             }
         });
+
     }
 
     @Override
