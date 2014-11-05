@@ -6,4 +6,15 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_manage_person_view">ManagePersonView</string>
 
+    <!--  -->
+    <string name="btn_person">Administrar Persona</string>
+    <string name="btn_especialidad">Administrar Especialidades</string>
+    <string name="btn_estud_person">Administrar Estudios Personales</string>
+    <string name="btn_estatus">Administrar Estados</string>
+    <string name="btn_estatus_laboral">Administrar Situaciones laborales</string>
+    <string name="title_activity_manage_status_view">ManageStatusView</string>
+    <string name="title_activity_manage_studies_view">ManageStudiesView</string>
+    <string name="title_activity_manage_speciality_view">ManageSpecialityView</string>
+    <string name="title_activity_manage_labotal_status_view">ManageLabotalStatusView</string>
+
 </resources>

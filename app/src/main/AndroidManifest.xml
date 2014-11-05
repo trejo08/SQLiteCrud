@@ -20,6 +20,22 @@
             android:name=".ManagePersonView"
             android:label="@string/title_activity_manage_person_view" >
         </activity>
+        <activity
+            android:name=".ManageStatusView"
+            android:label="@string/title_activity_manage_status_view" >
+        </activity>
+        <activity
+            android:name=".ManageStudiesView"
+            android:label="@string/title_activity_manage_studies_view" >
+        </activity>
+        <activity
+            android:name=".ManageSpecialityView"
+            android:label="@string/title_activity_manage_speciality_view" >
+        </activity>
+        <activity
+            android:name=".ManageLabotalStatusView"
+            android:label="@string/title_activity_manage_labotal_status_view" >
+        </activity>
     </application>
 
 </manifest>

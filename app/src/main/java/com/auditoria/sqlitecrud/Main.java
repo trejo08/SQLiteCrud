@@ -16,7 +16,15 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* setting buttons */
+
         Button managePerson = (Button) findViewById(R.id.btn_manage_person);
+        Button manageStatus = (Button) findViewById(R.id.btn_manage_status);
+        Button manageStudies = (Button) findViewById(R.id.btn_manage_studies);
+        Button manageSpecialities = (Button) findViewById(R.id.btn_manage_speciality);
+        Button manageLaboralSituations = (Button) findViewById(R.id.btn_manage_laboral_situation);
+
+        /* showing next activities */
         managePerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
