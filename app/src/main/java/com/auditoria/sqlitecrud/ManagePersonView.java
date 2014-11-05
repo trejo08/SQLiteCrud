@@ -2,11 +2,16 @@ package com.auditoria.sqlitecrud;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.sql.SQLClientInfoException;
 
 
 public class ManagePersonView extends Activity {
@@ -24,6 +29,14 @@ public class ManagePersonView extends Activity {
                 startActivity(showAddPersonView);
             }
         });
+
+        ListView persons = (ListView) findViewById(R.id.persons_list);
+        Cursor cursor = getPersons();
+        startManagingCursor(cursor);
+
+        String[] 
+
+
     }
 
 
@@ -44,5 +57,11 @@ public class ManagePersonView extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public Cursor getPersons(){
+        DatabaseManager databaseManager = new DatabaseManager(getBaseContext());
+        SQLiteDatabase db = databaseManager.getReadableDatabase();
+        return db.rawQuery("Select * from persons;", null);
     }
 }
