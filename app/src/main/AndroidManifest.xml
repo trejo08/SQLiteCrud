@@ -36,6 +36,12 @@
             android:name=".ManageLabotalStatusView"
             android:label="@string/title_activity_manage_labotal_status_view" >
         </activity>
+        <activity
+            android:name=".AddPersonView"
+            android:label="@string/title_activity_add_person_view" >
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
