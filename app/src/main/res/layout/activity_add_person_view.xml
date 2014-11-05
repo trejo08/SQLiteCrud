@@ -9,12 +9,37 @@
     tools:context="com.auditoria.sqlitecrud.AddPersonView">
 
     <TextView
+        android:id="@+id/lbl_title_person"
         android:text="@string/hello_world"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/lbl_name"
+        android:text="Name:"
+        android:layout_below="@id/lbl_title_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <EditText
-        android:id="@+id/txt_nombre"
+        android:id="@+id/txt_name"
+        android:layout_below="@id/lbl_name"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lbl_last_name"
+        android:layout_below="@id/txt_name"
+        android:layout_alignParentLeft="true"
+        android:text="Ingrese su Apellido:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/txt_last_name"
+        android:layout_below="@id/lbl_last_name"
+        android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

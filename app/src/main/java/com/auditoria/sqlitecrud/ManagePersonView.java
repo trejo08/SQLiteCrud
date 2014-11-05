@@ -20,6 +20,7 @@ public class ManagePersonView extends Activity {
             @Override
             public void onClick(View view) {
                 Intent showAddPersonView = new Intent(getApplicationContext(), AddPersonView.class);
+                finish();
                 startActivity(showAddPersonView);
             }
         });

@@ -33,6 +33,7 @@ public class Main extends Activity {
             @Override
             public void onClick(View view) {
                 Intent goToPerson = new Intent(getApplicationContext(),ManagePersonView.class);
+                finish();
                 startActivity(goToPerson);
             }
         });
