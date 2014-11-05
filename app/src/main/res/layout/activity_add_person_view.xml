@@ -17,30 +17,67 @@
     <TextView
         android:id="@+id/lbl_name"
         android:text="Name:"
-        android:layout_below="@id/lbl_title_person"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbl_title_person"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
 
     <EditText
         android:id="@+id/txt_name"
         android:layout_below="@id/lbl_name"
         android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lbl_last_name"
+        android:layout_alignEnd="@+id/lbl_last_name" />
 
     <TextView
         android:id="@+id/lbl_last_name"
-        android:layout_below="@id/txt_name"
-        android:layout_alignParentLeft="true"
         android:text="Ingrese su Apellido:"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
 
     <EditText
         android:id="@+id/txt_last_name"
         android:layout_below="@id/lbl_last_name"
         android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lbl_last_name"
+        android:layout_alignEnd="@+id/lbl_last_name" />
+
+    <TextView
+        android:id="@+id/lbl_age"
+        android:text="Ingrese su Apellido:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_last_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
+
+    <EditText
+        android:id="@+id/txt_age"
+        android:layout_below="@id/lbl_age"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lbl_last_name"
+        android:layout_alignEnd="@+id/lbl_last_name" />
+
+    <Button
+        android:id="@+id/btn_create_person"
+        android:layout_below="@id/txt_age"
+        android:text="Agregar Persona"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 
 </RelativeLayout>

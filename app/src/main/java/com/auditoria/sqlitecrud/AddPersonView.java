@@ -1,19 +1,55 @@
 package com.auditoria.sqlitecrud;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import org.w3c.dom.Text;
 
 
 public class AddPersonView extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person_view);
-    }
 
+        Button createPerson = (Button) findViewById(R.id.btn_add_person);
+        createPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseManager databaseManager = new DatabaseManager(getBaseContext());
+                SQLiteDatabase db = databaseManager.getWritableDatabase();
+
+                EditText txtName = (EditText) findViewById(R.id.txt_name);
+                EditText txtLastName = (EditText) findViewById(R.id.txt_last_name);
+                EditText txtAge = (EditText) findViewById(R.id.txt_age);
+
+                String name = txtName.getText().toString();
+                String lastName = txtLastName.getText().toString();
+                String age = txtAge.getText().toString();
+
+                ContentValues data = new ContentValues();
+                data.put("name", name);
+                data.put("last_name", lastName);
+                data.put("age", age);
+
+                try {
+                    db.isOpen();
+                    db.insert("persons", null, data);
+                }catch (Exception e){
+                    db.close();
+                    System.out.println(Log.e("Fallo al insertar: ", e.getMessage()));
+                }
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
