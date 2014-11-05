@@ -36,9 +36,6 @@ public class Main extends Activity {
                 startActivity(goToPerson);
             }
         });
-
-
-
     }
 
 
