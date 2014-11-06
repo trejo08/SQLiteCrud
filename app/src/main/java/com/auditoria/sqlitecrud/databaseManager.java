@@ -89,6 +89,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             arrayList.add(result.getString(result.getColumnIndex(column)));
             result.moveToNext();
         }
+        result.close();
         return arrayList;
     }
 }
