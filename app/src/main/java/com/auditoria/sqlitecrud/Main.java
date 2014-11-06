@@ -65,7 +65,7 @@ public class Main extends Activity {
 
         //if database has been opened successfully, we procedding to create tables
         if (db != null){
-            String tPerson = "create table if not exists persons (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, last_name TEXT, age TEXT, address CHAR(50));";
+            String tPerson = "create table if not exists persons (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, last_name TEXT, age TEXT, address CHAR(50));";
 //            String tStatus = "create table if not exists states (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);";
             db.execSQL(tPerson);
             System.out.println("the table has been created successfully");

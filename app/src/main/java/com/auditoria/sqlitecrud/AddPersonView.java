@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -48,9 +49,11 @@ public class AddPersonView extends Activity {
                     db.close();
                     Intent returnManager = new Intent(getApplicationContext(), ManagePersonView.class);
                     finish();
+                    Toast.makeText(getApplicationContext(), "The person has been added successfully", Toast.LENGTH_SHORT ).show();
                     startActivity(returnManager);
                 }catch (Exception e){
                     db.close();
+                    Toast.makeText(getApplicationContext(), "The person could not be added, please check your personal information", Toast.LENGTH_SHORT ).show();
                     System.out.println(Log.e("Fallo al insertar: ", e.getMessage()));
                 }
             }

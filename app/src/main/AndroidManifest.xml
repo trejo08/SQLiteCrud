@@ -40,10 +40,6 @@
             android:name=".AddPersonView"
             android:label="@string/title_activity_add_person_view" >
         </activity>
-        <activity
-            android:name=".ShowPersonsView"
-            android:label="@string/title_activity_show_persons_view" >
-        </activity>
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

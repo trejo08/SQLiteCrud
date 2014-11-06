@@ -1,6 +1,7 @@
 package com.auditoria.sqlitecrud;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,17 +9,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.sql.SQLClientInfoException;
+import java.util.ArrayList;
 
 
 public class ManagePersonView extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_person_view);
+
+        ListView personList;
+        DatabaseManager databaseManager = new DatabaseManager(getBaseContext());
 
         Button addPerson = (Button) findViewById(R.id.btn_add_person);
         addPerson.setOnClickListener(new View.OnClickListener() {
@@ -30,13 +36,10 @@ public class ManagePersonView extends Activity {
             }
         });
 
-        ListView persons = (ListView) findViewById(R.id.persons_list);
-        Cursor cursor = getPersons();
-        startManagingCursor(cursor);
-
-        String[] 
-
-
+        ArrayList arrayList = databaseManager.getAllData("persons", "name");
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.activity_manage_person_view, arrayList);
+        personList = (ListView) findViewById(R.id.persons_list);
+        personList.setAdapter(arrayAdapter);
     }
 
 
@@ -57,11 +60,5 @@ public class ManagePersonView extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public Cursor getPersons(){
-        DatabaseManager databaseManager = new DatabaseManager(getBaseContext());
-        SQLiteDatabase db = databaseManager.getReadableDatabase();
-        return db.rawQuery("Select * from persons;", null);
     }
 }
