@@ -23,7 +23,6 @@ public class ManagePersonView extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_person_view);
 
-        ListView personList;
         DatabaseManager databaseManager = new DatabaseManager(getBaseContext());
 
         Button addPerson = (Button) findViewById(R.id.btn_add_person);
@@ -37,8 +36,8 @@ public class ManagePersonView extends Activity {
         });
 
         ArrayList arrayList = databaseManager.getAllData("persons", "name");
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.activity_manage_person_view, arrayList);
-        personList = (ListView) findViewById(R.id.persons_list);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
+        ListView personList = (ListView) findViewById(R.id.persons_list);
         personList.setAdapter(arrayAdapter);
     }
 
