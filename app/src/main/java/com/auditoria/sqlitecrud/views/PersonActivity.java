@@ -1,9 +1,13 @@
 package com.auditoria.sqlitecrud.views;
 
 import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.auditoria.sqlitecrud.R;
 import com.auditoria.sqlitecrud.adapters.PersonListAdapter;
@@ -14,10 +18,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class PersonActivity extends Activity {
+public class PersonActivity extends ListActivity {
 
     private PersonDataSource dataSource;
-    private Person user = null;
+    private Person person = null;
     public static final int NEW_PERSON = 100;
     public static final int EDIT_PERSON = 200;
     public static final String PERSON_ID = "person_id";
@@ -39,6 +43,70 @@ public class PersonActivity extends Activity {
 
         adapter = new PersonListAdapter(this, R.layout.person_list_view, values);
         setListAdapter(adapter);
+
+        ((Button)findViewById(R.id.add)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent(getApplicationContext(),CreatePerson.class),NEW_PERSON);
+                /*String[] comments = new String[] { "Cool", "Very nice", "Hate it" };
+                int nextInt = new Random().nextInt(3);
+                adapter.add(dataSource.createComment(comments[nextInt]));
+                adapter.notifyDataSetChanged();*/
+            }
+        });
+
+        ((Button)findViewById(R.id.delete)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getListAdapter().getCount() > 0) {
+                    person = (Person) getListAdapter().getItem(0);
+                    dataSource.deleteUser(person.getId());
+                    adapter.remove(person);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case NEW_PERSON:
+                if(resultCode == Activity.RESULT_OK){
+                    adapter.add(
+                            dataSource.findUser(data.getLongExtra(CreatePerson.NEW_PERSON, 0)));
+                    adapter.notifyDataSetChanged();
+                }
+                break;
+            case EDIT_PERSON:
+                if(resultCode == Activity.RESULT_OK){
+                    try {
+                        dataSource.open();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    adapter = new PersonListAdapter(this, R.layout.person_list_view, dataSource.getAllUsers());
+                    setListAdapter(adapter);
+                }
+                break;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        try {
+            dataSource.open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        dataSource.close();
+        super.onPause();
     }
 
 

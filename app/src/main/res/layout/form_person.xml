@@ -23,29 +23,29 @@
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="First Name" />
+            android:text="Nombre" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextFirstName" />
+            android:id="@+id/editTextNombre" />
 
         <TextView
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Last Name" />
+            android:text="Apellido" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextLastName" />
+            android:id="@+id/editTextApellido" />
 
         <TextView
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender" />
+            android:text="Genero" />
 
         <RadioGroup
             android:id="@+id/radioGrpGender"
@@ -57,13 +57,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rdoMale"
-                android:text="Male" />
+                android:text="Masculino" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rdoFemale"
-                android:text="Female" />
+                android:text="Femenino" />
 
         </RadioGroup>
 
@@ -71,7 +71,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Birthdate" />
+            android:text="Fecha de Nacimiento" />
 
         <TextView
             android:id="@+id/txtBirthdate"
@@ -82,7 +82,7 @@
             android:id="@+id/btnSetBirthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Birthdate" />
+            android:text="Establecer Fecha" />
 
         <TextView
             android:layout_marginTop="15dp"
