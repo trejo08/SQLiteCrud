@@ -1,4 +1,4 @@
-package com.auditoria.sqlitecrud;
+package com.auditoria.sqlitecrud.dao;
 
 import android.content.ContentValues;
 import android.content.Context;

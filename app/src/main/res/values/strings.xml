@@ -18,5 +18,8 @@
     <string name="title_activity_manage_labotal_status_view">ManageLabotalStatusView</string>
     <string name="title_activity_add_person_view">AddPersonView</string>
     <string name="title_activity_show_persons_view">ShowPersonsView</string>
+    <string name="title_activity_menu">menu</string>
+    <string name="title_activity_person">PersonActivity</string>
+    <string name="title_activity_create_user">CreateUser</string>
 
 </resources>
