@@ -37,9 +37,9 @@ public class EstadoListAdapter extends ArrayAdapter {
             convertView.setTag(holder);
         }
         ViewHolder holder = (ViewHolder)convertView.getTag();
-        Estado estado = (Estado)getItem(position);
-        holder.viewTextEstado.setText(estado.toString());
-        holder.viewTextEstadoId.setText(String.valueOf(estado.getId()));
+        Estado rowEstado = (Estado)getItem(position);
+        holder.viewTextEstado.setText(rowEstado.toString());
+        holder.viewTextEstadoId.setText(String.valueOf(rowEstado.getId()));
 
         return convertView;
     }
