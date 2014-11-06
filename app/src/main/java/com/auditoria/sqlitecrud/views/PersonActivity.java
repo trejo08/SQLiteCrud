@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import com.auditoria.sqlitecrud.R;
@@ -64,6 +65,15 @@ public class PersonActivity extends ListActivity {
                     adapter.remove(person);
                     adapter.notifyDataSetChanged();
                 }
+            }
+        });
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Person user = (Person)getListAdapter().getItem(i);
+                Intent intent = new Intent(getApplicationContext(), EditPersonActivity.class);
+                intent.putExtra(PERSON_ID, user.getId());
+                startActivityForResult(intent, EDIT_PERSON);
             }
         });
     }
