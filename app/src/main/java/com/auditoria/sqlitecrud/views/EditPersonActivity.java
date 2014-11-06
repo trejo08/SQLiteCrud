@@ -2,7 +2,6 @@ package com.auditoria.sqlitecrud.views;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,34 +9,34 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.auditoria.sqlitecrud.R;
 import com.auditoria.sqlitecrud.dao.PersonDataSource;
+import com.auditoria.sqlitecrud.models.Person;
 
 import java.sql.SQLException;
-import java.util.Calendar;
 
+public class EditPersonActivity extends Activity {
 
-public class CreatePerson extends Activity {
-
-    private PersonDataSource dataSource;
-    private long personId;
-    public static final String NEW_PERSON = "newPerson";
+    //data
+    private boolean gender;
     private int day, month, year;
     private static final int DATE_DIALOG_ID = 999;
-    private boolean gender = false;
+    private Person person;
+    private PersonDataSource dataSource;
 
     // Views
-    private EditText editTextNombre;
-    private EditText editTextApellido;
+    private EditText editTextFirstName;
+    private EditText editTextLastName;
     private EditText editTextEmail;
     private RadioGroup rdoGrpGender;
     private Button btnSetBirthDate;
     private TextView txtBirthdate;
     private DatePickerDialog datePickerDialog;
-    private Button btnSave;
+    private Button btnEdit;
     private TextView tvMasterTitle;
 
     @Override
@@ -52,22 +51,22 @@ public class CreatePerson extends Activity {
             e.printStackTrace();
         }
 
-        editTextNombre = (EditText)findViewById(R.id.editTextNombre);
-        editTextApellido = (EditText)findViewById(R.id.editTextApellido);
+        editTextFirstName = (EditText)findViewById(R.id.editTextNombre);
+        editTextLastName = (EditText)findViewById(R.id.editTextApellido);
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         rdoGrpGender = (RadioGroup)findViewById(R.id.radioGrpGender);
         txtBirthdate = (TextView)findViewById(R.id.txtBirthdate);
         btnSetBirthDate = (Button)findViewById(R.id.btnSetBirthdate);
-        btnSave = (Button)findViewById(R.id.btnAction);
+        btnEdit = (Button)findViewById(R.id.btnAction);
         tvMasterTitle = (TextView)findViewById(R.id.textViewMasterTitle);
 
-        tvMasterTitle.setText("Crear Persona");
-        btnSave.setText("Guardar");
+        tvMasterTitle.setText("Editar Persona");
+        btnEdit.setText("Actualizar");
 
         rdoGrpGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
+                switch (i) {
                     case R.id.rdoMale:
                         gender = false;
                         break;
@@ -76,7 +75,6 @@ public class CreatePerson extends Activity {
                         break;
                     default:
                         gender = false;
-                        break;
                 }
             }
         });
@@ -87,11 +85,6 @@ public class CreatePerson extends Activity {
                 datePickerDialog.show();
             }
         });
-
-        final Calendar c = Calendar.getInstance();
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
 
         datePickerDialog = new DatePickerDialog(this,
                 new DatePickerDialog.OnDateSetListener() {
@@ -104,34 +97,43 @@ public class CreatePerson extends Activity {
                     }
                 }, year, month, day);
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                personId = dataSource.createPerson(
-                        editTextNombre.getText().toString(),
-                        editTextApellido.getText().toString(),
-                        gender,
-                        txtBirthdate.getText().toString(),
-                        editTextEmail.getText().toString()
-                ).getId();
-                try {
-                    setResult(Activity.RESULT_OK, new Intent().putExtra(NEW_PERSON, personId));
-                }catch (Exception e){
-                    System.out.println(e.getMessage().toString());
-                }
-
+                person.setNombre(editTextFirstName.getText().toString());
+                person.setApellido(editTextLastName.getText().toString());
+                person.setGender(gender);
+                person.setBirthdate(txtBirthdate.getText().toString());
+                person.setEmail(editTextEmail.getText().toString());
+                dataSource.updatePerson(person);
+                setResult(Activity.RESULT_OK);
                 finish();
             }
         });
 
+        person = dataSource.findPerson(getIntent().getLongExtra(PersonActivity.PERSON_ID, 0));
+        if(person != null)
+            this.setDataForm();
 
+
+    }
+
+    private void setDataForm(){
+        editTextFirstName.setText(person.getNombre());
+        editTextLastName.setText(person.getApellido());
+        editTextEmail.setText(person.getEmail());
+        if(person.isGender())
+            ((RadioButton)findViewById(R.id.rdoFemale)).setChecked(true);
+        else
+            ((RadioButton)findViewById(R.id.rdoMale)).setChecked(true);
+        txtBirthdate.setText(person.getBirthdate());
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.create_user, menu);
+        getMenuInflater().inflate(R.menu.edit_person, menu);
         return true;
     }
 

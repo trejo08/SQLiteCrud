@@ -75,7 +75,7 @@ public class PersonActivity extends ListActivity {
             case NEW_PERSON:
                 if(resultCode == Activity.RESULT_OK){
                     adapter.add(
-                            dataSource.findUser(data.getLongExtra(CreatePerson.NEW_PERSON, 0)));
+                            dataSource.findPerson(data.getLongExtra(CreatePerson.NEW_PERSON, 0)));
                     adapter.notifyDataSetChanged();
                 }
                 break;

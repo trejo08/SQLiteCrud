@@ -27,25 +27,25 @@ public class PersonListAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        if(convertView == null){
-//            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            convertView = inflater.inflate(R.layout.person_list_view, parent, false);
-//            ViewHolder holder = new ViewHolder();
-//            holder.viewTextUser = (TextView)convertView.findViewById(R.id.item_person_list);
-//            holder.viewTextUserId = (TextView)convertView.findViewById(R.id.item_id_person);
-//            convertView.setTag(holder);
-//        }
-//        ViewHolder holder = (ViewHolder)convertView.getTag();
-//        Person user = (Person)getItem(position);
-//        holder.viewTextUser.setText(user.toString());
-//        holder.viewTextUserId.setText(String.valueOf(user.getId()));
+        if(convertView == null){
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout., parent, false);
+            ViewHolder holder = new ViewHolder();
+            holder.viewTextPerson = (TextView)convertView.findViewById(R.id.item_person_list);
+            holder.viewTextPersonId = (TextView)convertView.findViewById(R.id.item_id_person);
+            convertView.setTag(holder);
+        }
+        ViewHolder holder = (ViewHolder)convertView.getTag();
+        Person user = (Person)getItem(position);
+        holder.viewTextPerson.setText(user.toString());
+        holder.viewTextPersonId.setText(String.valueOf(user.getId()));
 
         return convertView;
     }
 
     private static class ViewHolder{
-        public TextView viewTextUser;
-        public TextView viewTextUserId;
+        public TextView viewTextPerson;
+        public TextView viewTextPersonId;
     }
 
 

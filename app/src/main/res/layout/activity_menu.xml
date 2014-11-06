@@ -14,7 +14,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCompanies"
-        android:text="Companies" />
+        android:id="@+id/btnEstados"
+        android:text="Estados" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCargos"
+        android:text="Cargos" />
 
 </LinearLayout>

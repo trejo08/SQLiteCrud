@@ -55,7 +55,7 @@ public class PersonDataSource {
         return newPerson;
     }
 
-    public Person findUser(long userId){
+    public Person findPerson(long userId){
         Person c = null;
         String query = "SELECT * FROM " + PersonSQLiteHelper.TABLE + " WHERE _id = " + userId;
         Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, null);
@@ -88,7 +88,7 @@ public class PersonDataSource {
                 + " = " + userId, null);
     }
 
-    public Person updateUser(Person person){
+    public Person updatePerson(Person person){
         ContentValues values = new ContentValues();
         values.put(PersonSQLiteHelper.COLUMN_FIRST_NAME, person.getNombre());
         values.put(PersonSQLiteHelper.COLUMN_LAST_NAME, person.getApellido());
@@ -96,7 +96,7 @@ public class PersonDataSource {
         values.put(PersonSQLiteHelper.COLUMN_BIRTHDATE, person.getBirthdate());
         values.put(PersonSQLiteHelper.COLUMN_EMAIL, person.getEmail());
         long insertId = database.update(PersonSQLiteHelper.TABLE, values, PersonSQLiteHelper.COLUMN_ID + " = " + person.getId(), null);
-        return findUser(insertId);
+        return findPerson(insertId);
     }
 
     private Person cursorToPerson(Cursor cursor) {
