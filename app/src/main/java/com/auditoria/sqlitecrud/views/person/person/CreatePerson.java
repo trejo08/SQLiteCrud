@@ -1,4 +1,4 @@
-package com.auditoria.sqlitecrud.views;
+package com.auditoria.sqlitecrud.views.person.person;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
