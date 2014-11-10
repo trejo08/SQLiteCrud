@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by trejo on 11/6/14.
  */
-public class PersonSQLiteHelper extends SQLiteOpenHelper {
+public class ExperienciaLaboralSQLiteHelper extends SQLiteOpenHelper {
     public static final String TABLE = "persons";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_FIRST_NAME = "nombre";

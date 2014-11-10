@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.auditoria.sqlitecrud.helpers.EstadoSQLiteHelper;
 import com.auditoria.sqlitecrud.helpers.PersonSQLiteHelper;
 import com.auditoria.sqlitecrud.models.Estado;
-import com.auditoria.sqlitecrud.models.Person;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
