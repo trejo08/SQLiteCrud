@@ -19,9 +19,12 @@ public class PersonDataSource {
     // Database fields
     private SQLiteDatabase database;
     private PersonSQLiteHelper dbHelper;
-    private String[] allColumns  = {PersonSQLiteHelper.COLUMN_ID,
-            PersonSQLiteHelper.COLUMN_FIRST_NAME, PersonSQLiteHelper.COLUMN_LAST_NAME,
-            PersonSQLiteHelper.COLUMN_GENDER, PersonSQLiteHelper.COLUMN_BIRTHDATE,
+    private String[] allColumns  = {
+            PersonSQLiteHelper.COLUMN_ID,
+            PersonSQLiteHelper.COLUMN_FIRST_NAME,
+            PersonSQLiteHelper.COLUMN_LAST_NAME,
+            PersonSQLiteHelper.COLUMN_GENDER,
+            PersonSQLiteHelper.COLUMN_BIRTHDATE,
             PersonSQLiteHelper.COLUMN_EMAIL
     };
 
