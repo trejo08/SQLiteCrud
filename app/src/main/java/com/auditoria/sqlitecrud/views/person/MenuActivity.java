@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.auditoria.sqlitecrud.R;
-import com.auditoria.sqlitecrud.views.person.person.PersonActivity;
+import com.auditoria.sqlitecrud.views.person.persona.PersonActivity;
 
 
 public class MenuActivity extends Activity {
@@ -19,7 +19,7 @@ public class MenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        ((Button)findViewById(R.id.btnUsers)).setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(R.id.btnPersona)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, PersonActivity.class));

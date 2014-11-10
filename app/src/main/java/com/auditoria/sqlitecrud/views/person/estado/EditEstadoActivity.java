@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.auditoria.sqlitecrud.R;
 import com.auditoria.sqlitecrud.dao.PersonDataSource;
 import com.auditoria.sqlitecrud.models.Person;
-import com.auditoria.sqlitecrud.views.person.person.PersonActivity;
+import com.auditoria.sqlitecrud.views.person.persona.PersonActivity;
 
 import java.sql.SQLException;
 

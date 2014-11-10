@@ -8,19 +8,31 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnUsers"
-        android:text="Persons" />
+        android:id="@+id/btnPersona"
+        android:text="Persona" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnEstados"
-        android:text="Estados" />
+        android:id="@+id/btnExperiencias"
+        android:text="Experiencia Laboral" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnCargos"
-        android:text="Cargos" />
+        android:text="Cargo" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEmpresas"
+        android:text="Empresa" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOfertasLaborales"
+        android:text="Oferta Laboral" />
 
 </LinearLayout>

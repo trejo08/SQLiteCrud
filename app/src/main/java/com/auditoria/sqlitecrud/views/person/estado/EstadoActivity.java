@@ -12,13 +12,9 @@ import android.widget.Button;
 
 import com.auditoria.sqlitecrud.R;
 import com.auditoria.sqlitecrud.adapters.EstadoListAdapter;
-import com.auditoria.sqlitecrud.adapters.PersonListAdapter;
 import com.auditoria.sqlitecrud.dao.EstadoDataSource;
-import com.auditoria.sqlitecrud.dao.PersonDataSource;
 import com.auditoria.sqlitecrud.models.Estado;
-import com.auditoria.sqlitecrud.models.Person;
-import com.auditoria.sqlitecrud.views.person.person.CreatePerson;
-import com.auditoria.sqlitecrud.views.person.person.EditPersonActivity;
+import com.auditoria.sqlitecrud.views.person.persona.EditPersonActivity;
 
 import java.sql.SQLException;
 import java.util.List;

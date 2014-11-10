@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.person.person.PersonActivity"
+            android:name=".views.person.persona.PersonActivity"
             android:label="@string/title_activity_person" >
         </activity>
         <activity
-            android:name=".views.person.person.CreatePerson"
+            android:name=".views.person.persona.CreatePerson"
             android:label="@string/title_activity_create_person" >
         </activity>
         <activity
-            android:name=".views.person.person.EditPersonActivity"
+            android:name=".views.person.persona.EditPersonActivity"
             android:label="@string/title_activity_edit_person" >
         </activity>
     </application>
