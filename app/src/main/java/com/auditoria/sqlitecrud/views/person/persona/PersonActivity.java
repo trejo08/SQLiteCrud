@@ -1,5 +1,6 @@
 package com.auditoria.sqlitecrud.views.person.persona;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+
 
 import com.auditoria.sqlitecrud.R;
 import com.auditoria.sqlitecrud.adapters.PersonListAdapter;
@@ -31,6 +33,11 @@ public class PersonActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        if (getActionBar() != null) {
+//            getActionBar().setDisplayHomeAsUpEnabled(true);
+//        }
+
         setContentView(R.layout.activity_person);
 
         dataSource = new PersonDataSource(this);

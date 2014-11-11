@@ -103,8 +103,13 @@ public class PersonDataSource {
     }
 
     private Person cursorToPerson(Cursor cursor) {
-        return new Person(cursor.getLong(0), cursor.getString(1), cursor.getString(2),
-                (cursor.getInt(4) > 0 ? true : false), cursor.getString(3),
-                cursor.getString(5));
+        return new Person(
+                cursor.getLong(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                (cursor.getInt(4) > 0 ? true : false),
+                cursor.getString(3),
+                cursor.getString(5)
+        );
     }
 }
