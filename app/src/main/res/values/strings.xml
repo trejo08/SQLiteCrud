@@ -12,5 +12,6 @@
     <string name="title_activity_person">PersonActivity</string>
     <string name="title_activity_create_person">CreatePerson</string>
     <string name="title_activity_edit_person">EditPersonActivity</string>
+    <string name="title_activity_experiencia_laboral">ExperienciaLaboralActivity</string>
 
 </resources>

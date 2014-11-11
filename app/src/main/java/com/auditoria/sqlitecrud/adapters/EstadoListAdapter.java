@@ -30,10 +30,10 @@ public class EstadoListAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.estado_list_view, parent, false);
+            convertView = inflater.inflate(R.layout.list_view_form, parent, false);
             ViewHolder holder = new ViewHolder();
-            holder.viewTextEstado = (TextView)convertView.findViewById(R.id.item_estado_list);
-            holder.viewTextEstadoId = (TextView)convertView.findViewById(R.id.item_id_estado);
+            holder.viewTextEstado = (TextView)convertView.findViewById(R.id.item_descriptor);
+            holder.viewTextEstadoId = (TextView)convertView.findViewById(R.id.item_id);
             convertView.setTag(holder);
         }
         ViewHolder holder = (ViewHolder)convertView.getTag();

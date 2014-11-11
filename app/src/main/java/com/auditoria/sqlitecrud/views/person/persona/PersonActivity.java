@@ -104,7 +104,7 @@ public class PersonActivity extends ListActivity {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    adapter = new PersonListAdapter(this, R.layout.person_list_view, dataSource.getAllUsers());
+                    adapter = new PersonListAdapter(this, R.layout.list_view_form, dataSource.getAllUsers());
                     setListAdapter(adapter);
                 }
                 break;

@@ -44,7 +44,7 @@ public class EstadoActivity extends ListActivity {
 
         List<Estado> values = dataSource.getAllEstados();
 
-        adapter = new EstadoListAdapter(this, R.layout.estado_list_view, values);
+        adapter = new EstadoListAdapter(this, R.layout.list_view_form, values);
         setListAdapter(adapter);
 
         ((Button)findViewById(R.id.add)).setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class EstadoActivity extends ListActivity {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    adapter = new EstadoListAdapter(this, R.layout.estado_list_view, dataSource.getAllEstados());
+                    adapter = new EstadoListAdapter(this, R.layout.list_view_form, dataSource.getAllEstados());
                     setListAdapter(adapter);
                 }
                 break;

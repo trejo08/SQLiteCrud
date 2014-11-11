@@ -28,6 +28,10 @@
             android:name=".views.person.persona.EditPersonActivity"
             android:label="@string/title_activity_edit_person" >
         </activity>
+        <activity
+            android:name=".views.person.ExperienciaLaboral.ExperienciaLaboralActivity"
+            android:label="@string/title_activity_experiencia_laboral" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
