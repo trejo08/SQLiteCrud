@@ -49,7 +49,8 @@ public class PersonActivity extends ListActivity {
 
         List<Person> values = dataSource.getAllUsers();
 
-        adapter = new PersonListAdapter(this, R.layout.person_list_view, values);
+//        adapter = new PersonListAdapter(this, R.layout.person_list_view, values);
+        adapter = new PersonListAdapter(this, R.layout.list_view_form, values);
         setListAdapter(adapter);
 
         ((Button)findViewById(R.id.add)).setOnClickListener(new View.OnClickListener() {

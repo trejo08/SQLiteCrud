@@ -29,10 +29,10 @@ public class PersonListAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.person_list_view, parent, false);
+            convertView = inflater.inflate(R.layout.list_view_form, parent, false);
             ViewHolder holder = new ViewHolder();
-            holder.viewTextPerson = (TextView)convertView.findViewById(R.id.item_person_list);
-            holder.viewTextPersonId = (TextView)convertView.findViewById(R.id.item_id_person);
+            holder.viewTextPerson = (TextView)convertView.findViewById(R.id.item_descriptor);
+            holder.viewTextPersonId = (TextView)convertView.findViewById(R.id.item_id);
             convertView.setTag(holder);
         }
         ViewHolder holder = (ViewHolder)convertView.getTag();
